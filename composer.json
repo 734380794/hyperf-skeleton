@@ -27,8 +27,8 @@
         "hyperf/context": "3.1.*",
         "hyperf/contract": "3.1.*",
         "hyperf/coroutine": "3.1.*",
-        "hyperf/database": "3.1.*",
-        "hyperf/db-connection": "3.1.*",
+        "hyperf/database": "^3.1",
+        "hyperf/db-connection": "^3.1",
         "hyperf/di": "3.1.*",
         "hyperf/dispatcher": "3.1.*",
         "hyperf/engine": "^2.0",
@@ -44,7 +44,9 @@
         "hyperf/process": "3.1.*",
         "hyperf/redis": "3.1.*",
         "hyperf/server": "3.1.*",
-        "hyperf/utils": "3.1.*"
+        "hyperf/swagger": "3.1.*",
+        "hyperf/utils": "3.1.*",
+        "hyperf/validation": "3.1.*"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",

@@ -12,6 +12,10 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
       - ./.github/init.sql:/docker-entrypoint-initdb.d/init.sql
+    expose: #暴露端口到内部网络 mysql –u root –p root -D test   mysql –uroot –proot -Dtest     mysql -uroot –proot -Dtest
+      - 3307
+    ports:
+      - "3307:3307"
     restart: "always"
   redis:
     image: "redis"
@@ -38,6 +42,7 @@ services:
       - "9501:9501"
     volumes:
       - "./.env.example:/opt/www/.env"
+      - "./:/opt/www"
     networks:
       - net
     restart: "always"
