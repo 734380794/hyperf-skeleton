@@ -34,9 +34,14 @@ Docker启动流程如下：
 
 ## hyperf常用命令
 ```shell
-php bin/hyperf.php gen:model  生成并更新model文件
-php bin/hyperf.php gen:controller TestContrller 生成Controller文件
-
+# 引入包文件
 composer require hyperf/database 引入hyperf/database
+# 更新依赖
 composer cs
+# 创建模型
+php hyperf.php gen:model
+# 创建控制器
+php hyperf.php gen:controller TestController
+# 创建脚本
+php hyperf.php gen:command TestCommand
 ```

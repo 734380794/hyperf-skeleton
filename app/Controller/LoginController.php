@@ -12,13 +12,26 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use Hyperf\Swaggerger\Annotation as HA;
+use App\Service\LoginService;
+use Hyperf\Di\Annotation\Inject;
+use Hyperf\Swagger\Annotation as SA;
+use Hyperf\Swagger\Request\SwaggerRequest;
 
-#[HA\HyperfServer('http')]
-class LoginController
+#[SA\HyperfServer('http')]
+class LoginController extends Controller
 {
-    #[HA\Post('/login', '小程序登录')]
-    public function login()
+    #[Inject]
+    protected LoginService $loginService;
+
+    #[SA\Post('/login', '小程序登录')]
+    #[SA\RequestBody(new SA\JsonContent([
+        new SA\Property('code', '微信授权码', 'string', 'required|string'),
+    ]))]
+    //    #[SA\Response('200', new SA\JsonContent('#/compoments/schemes/loginSchem'))]
+    public function login(SwaggerRequest $request)
     {
+        $code = $request->input('code');
+        $result = $this->loginService->login($code);
+        return $this->response->success($result);
     }
 }
