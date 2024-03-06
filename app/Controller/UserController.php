@@ -12,22 +12,23 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Service\LoginService;
+use App\Service\SubService\UserAuth;
+use App\Service\UserService;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Swagger\Annotation as SA;
 use Hyperf\Swagger\Request\SwaggerRequest;
 
 #[SA\HyperfServer('http')]
-class LoginController extends Controller
+class UserController extends Controller
 {
     #[Inject]
-    protected LoginService $loginService;
+    protected UserService $userService;
 
-    #[SA\Post('/login', '小程序登录')]
-    public function login(SwaggerRequest $request)
+    #[SA\Post('/user/info', '用户信息')]
+    public function info(SwaggerRequest $request)
     {
-        $code = $request->input('code');
-        $result = $this->loginService->login($code);
-        return $this->response->success($result);
+        //        $user_id = UserAuth::instance()->getUserId();
+//        $result = $this->userService->info(1);
+        return $this->response->success("12313");
     }
 }

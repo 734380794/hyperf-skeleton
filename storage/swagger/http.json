@@ -1,1 +1,1 @@
-{"openapi":"3.0.0","paths":{"\/login":{"post":{"operationId":"小程序登录"}}}}
+{"openapi":"3.0.0","paths":{"\/login":{"post":{"operationId":"小程序登录"}}},"components":{"schemas":{"LoginSchema":{"title":"LoginSchema","properties":{"id":{"title":"ID","type":"integer","rules":null,"attribute":null}},"type":"object"}}}}

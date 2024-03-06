@@ -25,6 +25,21 @@ enum ErrorCode: int implements ErrorCodeInterface
      */
     case SERVER_ERROR = 500;
 
+    /**
+     * @Message("token 已失效")
+     */
+    case TOKEN_INVALID = 700;
+
+    /**
+     * @Message("授权登录失败")
+     */
+    case OAUTH_FAILED = 701;
+
+    /**
+     * @Message("用户不存在")
+     */
+    case USER_NOT_EXIST = 702;
+
     public function getMessage(array $translate = null): string
     {
         $arguments = [];
